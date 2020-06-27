@@ -4,6 +4,7 @@ go 1.14
 
 require (
 	github.com/go-developer/go-bootstrap v0.0.0-20200626142745-0452440d8e63
+	github.com/go-developer/go-logger v0.0.0-20200627081447-7022357ebdad // indirect
 	github.com/go-developer/go-util v0.0.0-20200626144454-b6f435c8f7ad
 	github.com/kr/pretty v0.1.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect

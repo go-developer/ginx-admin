@@ -15,6 +15,8 @@ import (
 	"os"
 
 	"github.com/go-developer/ginx-admin/boot"
+	"github.com/go-developer/go-logger"
+	"go.uber.org/zap"
 )
 
 var (
@@ -30,7 +32,8 @@ func main() {
 	parseParam()
 	boot.Start(configFilePath, debudMode)
 	defer boot.Stop()
-	fmt.Println("aassddsssqqs路由")
+	log, _ := logger.NewDefaultLoggerConfig("ginx", true, 1, "json", "./logs/test.log", "./test.log")
+	log.Error("测试日志", zap.Any("test", "这是一条message===="))
 }
 
 func parseParam() {
