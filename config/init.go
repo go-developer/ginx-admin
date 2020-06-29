@@ -35,6 +35,7 @@ func InitConfig(configPath string, debugMode bool) {
 		configPath: configPath,
 		debugMode:  debugMode,
 	}
+	Config.initLogger()
 	Config.initBase()
 }
 
@@ -44,21 +45,44 @@ func InitConfig(configPath string, debugMode bool) {
 var Config *config
 
 type config struct {
-	configPath string
-	debugMode  bool
-	baseConfig Base
+	configPath   string
+	debugMode    bool
+	BaseConfig   Base
+	LoggerConfig Logger
 }
 
+// initBase 初始化基础配置
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/06/29 15:31:30
 func (c *config) initBase() {
 	var (
 		configPath string
 		err        error
 	)
 	configPath = c.getFullConfigPath("base.yml")
-	if err = util.YamlUtil.ParseYamlFile(configPath, &c.baseConfig); nil != err {
+	if err = util.YamlUtil.ParseYamlFile(configPath, &c.BaseConfig); nil != err {
 		panic("基础配置文件解析失败, 配置文件路径 : " + configPath + " 异常原因 :" + err.Error())
 	}
-	fmt.Println("配置文件", c.baseConfig)
+	fmt.Println("配置文件", c.BaseConfig)
+}
+
+// initLogger 初始化日志配置
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/06/29 14:25:37
+func (c *config) initLogger() {
+	var (
+		configPath string
+		err        error
+	)
+	configPath = c.getFullConfigPath("logger.yml")
+	if err = util.YamlUtil.ParseYamlFile(configPath, &c.LoggerConfig); nil != err {
+		panic("日志配置文件解析失败, 配置文件路径 : " + configPath + " 异常原因 :" + err.Error())
+	}
+	fmt.Println("日志配置文件", c.LoggerConfig)
 }
 
 // 获取配置文件的绝对路径

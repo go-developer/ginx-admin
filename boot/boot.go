@@ -19,6 +19,7 @@ import "github.com/go-developer/go-bootstrap"
 func Start(configPath string, debugMode bool) {
 	//注册配置文件加载
 	bootstrap.ModuleBootstrap.Register(NewConfigBootstrap(configPath, debugMode))
+	bootstrap.ModuleBootstrap.Register(NewLoggerBootstrap())
 	bootstrap.ModuleBootstrap.Bootstrap()
 }
 

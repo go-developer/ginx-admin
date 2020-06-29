@@ -15,3 +15,20 @@ package config
 type Base struct {
 	Port uint `yml:"port"`
 }
+
+// Logger 日志相关配置
+//
+// Author : go_developer@163.com<张德满>
+type Logger struct {
+	Access   ItemLogger `yml:"access"`
+	Business ItemLogger `yml:"business"`
+}
+
+// ItemLogger 日志的数据结构
+//
+// Author : go_developer@163.com<张德满>
+type ItemLogger struct {
+	Debug bool   `yml:"debug"`
+	Level int    `yml:"level"`
+	Path  string `yml:"path"`
+}
