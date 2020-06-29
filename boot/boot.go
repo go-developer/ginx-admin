@@ -9,7 +9,9 @@
 // Date : 2020/06/26 21:12:29
 package boot
 
-import "github.com/go-developer/go-bootstrap"
+import (
+	"github.com/go-developer/go-bootstrap"
+)
 
 // Start 启动服务
 //
@@ -20,6 +22,7 @@ func Start(configPath string, debugMode bool) {
 	//注册配置文件加载
 	bootstrap.ModuleBootstrap.Register(NewConfigBootstrap(configPath, debugMode))
 	bootstrap.ModuleBootstrap.Register(NewLoggerBootstrap())
+	bootstrap.ModuleBootstrap.Register(NewRouterBootstrap())
 	bootstrap.ModuleBootstrap.Bootstrap()
 }
 
