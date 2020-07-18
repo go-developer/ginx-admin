@@ -20,11 +20,11 @@ var (
 	// Business 业务日志
 	//
 	// Author : go_developer@163.com<张德满>
-	Business *zap.Logger
+	Business *goLogger.WrapperLogger
 	// Access 访问日志
 	//
 	// Author : go_developer@163.com<张德满>
-	Access *zap.Logger
+	Access *goLogger.WrapperLogger
 )
 
 // InitLogger 初始化日志
@@ -33,26 +33,28 @@ var (
 //
 // Date : 2020/06/29 19:48:25
 func InitLogger() {
-	var err error
-	if Business, err = goLogger.NewDefaultLoggerConfig(
+	var (
+		businessLogCfg  *goLogger.LogConfig
+		accessLogConfig *goLogger.LogConfig
+	)
+	businessLogCfg = goLogger.BuildLogConfig(
 		"ginx-admin",
 		config.Config.LoggerConfig.Business.Debug,
 		zapcore.Level(config.Config.LoggerConfig.Business.Level),
 		"json",
 		config.Config.LoggerConfig.Business.Path,
-		config.Config.LoggerConfig.Business.Path,
-	); nil != err {
-		panic(err)
-	}
-	if Access, err = goLogger.NewDefaultLoggerConfig(
+		nil,
+	)
+	Business = goLogger.NewWrapperLogger(businessLogCfg)
+
+	accessLogConfig = goLogger.BuildLogConfig(
 		"ginx-admin",
-		config.Config.LoggerConfig.Business.Debug,
-		zapcore.Level(config.Config.LoggerConfig.Business.Level),
+		config.Config.LoggerConfig.Access.Debug,
+		zapcore.Level(config.Config.LoggerConfig.Access.Level),
 		"json",
-		config.Config.LoggerConfig.Business.Path,
-		config.Config.LoggerConfig.Business.Path,
-	); nil != err {
-		panic(err)
-	}
-	Business.Info("业务日志 & access日志初始化成功", zap.Any("log_config", config.Config.LoggerConfig))
+		config.Config.LoggerConfig.Access.Path,
+		nil,
+	)
+	Access = goLogger.NewWrapperLogger(accessLogConfig)
+	Business.Info(nil, "业务日志 & access日志初始化成功", zap.Any("log_config", config.Config.LoggerConfig))
 }

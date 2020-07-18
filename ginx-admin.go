@@ -21,20 +21,20 @@ var (
 	//配置文件
 	configFilePath string
 	//开启debug模式
-	debudMode bool
+	debugMode bool
 	//帮助
 	help bool
 )
 
 func main() {
 	parseParam()
-	boot.Start(configFilePath, debudMode)
+	boot.Start(configFilePath, debugMode)
 	defer boot.Stop()
 }
 
 func parseParam() {
 	flag.BoolVar(&help, "h", false, "帮助文档")
-	flag.BoolVar(&debudMode, "debugMode", false, "是否开启debug模式")
+	flag.BoolVar(&debugMode, "debugMode", false, "是否开启debug模式")
 	flag.StringVar(&configFilePath, "configFilePath", "", "配置文件目录")
 	flag.Usage = usage
 	flag.Parse()
@@ -45,8 +45,8 @@ func parseParam() {
 }
 func usage() {
 	fmt.Fprintf(os.Stderr, `nginx version: nginx/1.10.0
-	Usage: ginx-admin [-h] [-configFilePath configFilePath] [-dabugMode]
-	
+	Usage: ginx-admin [-h] [-configFilePath configFilePath] [-debugMode]
+
 	Options:
 	`)
 	flag.PrintDefaults()
