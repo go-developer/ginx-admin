@@ -12,6 +12,7 @@ package boot
 import (
 	"github.com/go-developer/ginx-admin/config"
 	"github.com/go-developer/go-bootstrap"
+	godb "github.com/go-developer/gorm-mysql"
 )
 
 // NewConfigBootstrap 加载配置文件
@@ -33,6 +34,30 @@ type configBootstrap struct {
 
 func (cb *configBootstrap) Start() error {
 	config.InitConfig(cb.configPath, cb.debugMode)
+	// TODO 迁移走数据库初始化
+	godb.InitDatabaseClient(&godb.DBConfig{
+		Read: &godb.Mysql{
+			Host:     "127.0.0.1",
+			Port:     3306,
+			User:     "root",
+			Password: "zhangdeman",
+			Database: "ginx",
+			Charset:  "utf8",
+			Loc:      "Asia/shanghai",
+		},
+		Write: &godb.Mysql{
+			Host:     "127.0.0.1",
+			Port:     3306,
+			User:     "root",
+			Password: "zhangdeman",
+			Database: "ginx",
+			Loc:      "Asia/shanghai",
+			Charset:  "utf8",
+		},
+		Log: &godb.MysqlLog{
+			OpenLog: false,
+		},
+	})
 	return nil
 }
 

@@ -16,6 +16,7 @@ import (
 	"github.com/facebookarchive/grace/gracehttp"
 	"github.com/gin-gonic/gin"
 	"github.com/go-developer/ginx-admin/config"
+	"github.com/go-developer/ginx-admin/http/controller/auth"
 	"github.com/go-developer/go-bootstrap"
 )
 
@@ -34,7 +35,12 @@ type routerBootstrap struct {
 	router *gin.Engine
 }
 
+func (rb *routerBootstrap) loadRoute() {
+	rb.router.POST("/admin/user/login", auth.Login)
+}
+
 func (rb *routerBootstrap) Start() error {
+	rb.loadRoute()
 	if err := gracehttp.Serve(&http.Server{Addr: fmt.Sprintf(":%d", config.Config.BaseConfig.Port), Handler: rb.router}); nil != err {
 		panic(err)
 	}
