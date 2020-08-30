@@ -37,6 +37,7 @@ type routerBootstrap struct {
 
 func (rb *routerBootstrap) loadRoute() {
 	rb.router.POST("/admin/user/login", auth.Login)
+	rb.router.GET("/admin/user/info", auth.Verify)
 }
 
 func (rb *routerBootstrap) Start() error {

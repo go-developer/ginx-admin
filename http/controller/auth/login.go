@@ -53,7 +53,21 @@ func Login(ctx *gin.Context) {
 		"code":    0,
 		"message": "请求成功",
 		"data": map[string]interface{}{
-			"token": token,
+			"token": "test-token",
+		},
+	})
+}
+
+func Verify(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, gin.H{
+		"code":    0,
+		"message": "请求成功",
+		"data": map[string]interface{}{
+			"username":     17710580607,
+			"roles":        []int{1, 2},
+			"name":         "张德满",
+			"avatar":       "",
+			"introduction": "测试账号",
 		},
 	})
 }
