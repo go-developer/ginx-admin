@@ -66,7 +66,7 @@ func Verify(ctx *gin.Context) {
 			"username":     17710580607,
 			"roles":        []int{1, 2},
 			"name":         "张德满",
-			"avatar":       "",
+			"avatar":       "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2073764831,3773405347&fm=26&gp=0.jpg",
 			"introduction": "测试账号",
 		},
 	})

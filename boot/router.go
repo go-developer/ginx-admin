@@ -13,6 +13,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/go-developer/ginx-admin/http/controller/project"
+
 	"github.com/facebookarchive/grace/gracehttp"
 	"github.com/gin-gonic/gin"
 	"github.com/go-developer/ginx-admin/config"
@@ -38,6 +40,7 @@ type routerBootstrap struct {
 func (rb *routerBootstrap) loadRoute() {
 	rb.router.POST("/admin/user/login", auth.Login)
 	rb.router.GET("/admin/user/info", auth.Verify)
+	rb.router.POST("/admin/project/scheme/create", project.Scheme.Create)
 }
 
 func (rb *routerBootstrap) Start() error {
