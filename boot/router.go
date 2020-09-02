@@ -41,6 +41,7 @@ func (rb *routerBootstrap) loadRoute() {
 	rb.router.POST("/admin/user/login", auth.Login)
 	rb.router.GET("/admin/user/info", auth.Verify)
 	rb.router.POST("/admin/project/scheme/create", project.Scheme.Create)
+	rb.router.GET("/admin/project/scheme/all", project.Scheme.GetAll)
 }
 
 func (rb *routerBootstrap) Start() error {

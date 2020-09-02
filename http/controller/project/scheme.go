@@ -24,6 +24,9 @@ func init() {
 	Scheme = &scheme{}
 }
 
+type scheme struct {
+}
+
 func (s *scheme) Create(ctx *gin.Context) {
 	var param struct {
 		Scheme string `json:"scheme"`
@@ -48,5 +51,18 @@ func (s *scheme) Create(ctx *gin.Context) {
 	}
 }
 
-type scheme struct {
+func (s *scheme) GetAll(ctx *gin.Context) {
+	if list, err := core.Scheme.GetAllScheme(ctx); nil != err {
+		ctx.JSON(http.StatusOK, gin.H{
+			"code": -1,
+		})
+		return
+	} else {
+		ctx.JSON(http.StatusOK, gin.H{
+			"code":    0,
+			"message": "请求成功",
+			"data":    list,
+		})
+		return
+	}
 }
