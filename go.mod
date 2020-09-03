@@ -13,7 +13,7 @@ require (
 	github.com/facebookgo/stats v0.0.0-20151006221625-1b76add642e4 // indirect
 	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/gin-gonic/gin v1.6.3
-	github.com/go-developer/ginx-manager v0.0.0-20200901152445-583d4172041a
+	github.com/go-developer/ginx-manager v0.0.0-20200903152039-65bae8bab679
 	github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04
 	github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c
 	github.com/go-developer/go-util v0.0.0-20200725141621-e10d38524a2e
