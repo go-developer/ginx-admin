@@ -43,6 +43,7 @@ func (rb *routerBootstrap) loadRoute() {
 	rb.router.POST("/admin/project/scheme/create", project.Scheme.Create)
 	rb.router.GET("/admin/project/scheme/all", project.Scheme.GetAll)
 	rb.router.POST("/admin/project/scheme/delete", project.Scheme.SoftDelete)
+	rb.router.POST("/admin/project/scheme/update", project.Scheme.Update)
 }
 
 func (rb *routerBootstrap) Start() error {

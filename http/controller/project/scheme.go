@@ -92,3 +92,30 @@ func (s *scheme) SoftDelete(ctx *gin.Context) {
 		"code": 0,
 	})
 }
+
+func (s *scheme) Update(ctx *gin.Context) {
+	var param struct {
+		SchemeID uint64 `json:"scheme_id"`
+		Scheme   string `json:"scheme"`
+	}
+	if err := ctx.BindJSON(&param); nil != err {
+		ctx.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": err.Error(),
+			"data":    nil,
+		})
+		return
+	}
+
+	if err := core.Scheme.UpdateScheme(ctx, param.SchemeID, param.Scheme); nil != err {
+		ctx.JSON(http.StatusOK, gin.H{
+			"code":    -1,
+			"message": err.Error(),
+			"data":    nil,
+		})
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{
+		"code": 0,
+	})
+}
