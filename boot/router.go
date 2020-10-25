@@ -13,6 +13,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/go-developer/go-util/util"
+
 	"github.com/go-developer/ginx-admin/http/controller/project"
 
 	"github.com/facebookarchive/grace/gracehttp"
@@ -48,6 +50,9 @@ func (rb *routerBootstrap) loadRoute() {
 
 func (rb *routerBootstrap) Start() error {
 	rb.loadRoute()
+	projectPath, _ := util.ProjectUtil.GetCurrentPath()
+	rb.router.StaticFS("/auth", http.Dir(projectPath+"/html/auth"))
+	rb.router.StaticFS("/assets", http.Dir(projectPath+"/html/assets"))
 	if err := gracehttp.Serve(&http.Server{Addr: fmt.Sprintf(":%d", config.Config.BaseConfig.Port), Handler: rb.router}); nil != err {
 		panic(err)
 	}

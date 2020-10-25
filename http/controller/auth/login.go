@@ -23,10 +23,8 @@ import (
 //
 // Date : 2020/07/05 20:16:58
 func Login(ctx *gin.Context) {
-	ctx.Header("Access-Control-Allow-Origin", "*")
-	ctx.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	var param struct {
-		Account  string `json:"username"`
+		Account  string `json:"account"`
 		Password string `json:"password"`
 	}
 	if err := ctx.BindJSON(&param); nil != err {
@@ -49,6 +47,9 @@ func Login(ctx *gin.Context) {
 		return
 	}
 	fmt.Println("登录的token : " + token)
+	ctx.Header("Access-Control-Allow-Origin", "*") //允许访问所有域
+	//ctx.Header("Access-Control-Allow-Headers", "Content-Type") //header的类型
+	//ctx.Header("content-type", "application/json")             //返回数据格式是json
 	ctx.JSON(http.StatusOK, gin.H{
 		"code":    0,
 		"message": "请求成功",
