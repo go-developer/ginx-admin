@@ -109,7 +109,7 @@ function setToken(token, remember) {
     loginToken = token
     if (remember) {
         //记住密码,保存七天
-        $.cookie(tokenKey, token, {expires : 7})
+        $.cookie(tokenKey, token, { expires: 7 })
         return
     }
     // 默认浏览器关闭
@@ -125,8 +125,7 @@ function redirect(url) {
 }
 
 function verifyToken() {
-    alert(111)
-    request(methodGet,"/admin/user/info", "", "json", contentTypeForm, function (data) {
+    request(methodGet, "/admin/user/info", "", "json", contentTypeForm, function (data) {
         userInfo = data.data
     })
 }
