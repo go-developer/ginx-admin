@@ -51,8 +51,9 @@ func (rb *routerBootstrap) loadRoute() {
 func (rb *routerBootstrap) Start() error {
 	rb.loadRoute()
 	projectPath, _ := util.ProjectUtil.GetCurrentPath()
-	rb.router.StaticFS("/auth", http.Dir(projectPath+"/html/auth"))
+	rb.router.StaticFS("/page", http.Dir(projectPath+"/html"))
 	rb.router.StaticFS("/assets", http.Dir(projectPath+"/html/assets"))
+	rb.router.StaticFS("/plugins", http.Dir(projectPath+"/html/plugins"))
 	if err := gracehttp.Serve(&http.Server{Addr: fmt.Sprintf(":%d", config.Config.BaseConfig.Port), Handler: rb.router}); nil != err {
 		panic(err)
 	}

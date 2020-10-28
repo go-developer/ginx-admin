@@ -21,8 +21,6 @@ function logger() {
     console.log(...logger.arguments)
 }
 
-
-
 // ajax 请求
 
 // 定义 contentType
@@ -33,7 +31,7 @@ const contentTypeForm = "application/x-www-form-urlencoded";
 const methodGet = "get";
 const methodPost = "post";
 
-adminServiceDomain = "http://localhost:18080"
+let adminServiceDomain = "http://localhost:18080"
 
 if (!isDevelopment) {
     adminServiceDomain = ""
@@ -82,7 +80,10 @@ const tokenKey = "GO_GATEWAY_TOKEN"
 const successCode = 0
 
 // 定义登录页面
-const loginPageURI = "/auth/login.html"
+const loginPageURI = "/page/auth/login.html"
+
+// 定义默认首页
+const defaultIndexPage = "/page/dashboard/index.html"
 
 // 定义当前页面URI
 const currentPageURI = window.location.pathname
@@ -92,9 +93,11 @@ let userInfo = {}
 
 let loginToken = $.cookie(tokenKey)
 
-if (currentPageURI !== loginPageURI && loginToken.length === 0) {
+logger("token信息", loginToken, tokenKey)
+
+if (undefined === loginToken || (currentPageURI !== loginPageURI && loginToken.length === 0)) {
     // 非登录页面，并且没有token, 重定向到 登录页面
-    redirect(loginPageURI)
+    redirect(loginPageURI + "#" + currentPageURI)
 }
 
 // 校验token有效性
@@ -109,7 +112,12 @@ function setToken(token, remember) {
     loginToken = token
     if (remember) {
         //记住密码,保存七天
-        $.cookie(tokenKey, token, {expires : 7})
+        $.cookie(tokenKey, token, {
+            expires: 7,
+            path: '/',
+            // domain: adminServiceDomain,
+            // secure: true
+        })
         return
     }
     // 默认浏览器关闭
@@ -125,8 +133,7 @@ function redirect(url) {
 }
 
 function verifyToken() {
-    alert(111)
-    request(methodGet,"/admin/user/info", "", "json", contentTypeForm, function (data) {
+    request(methodGet, "/admin/user/info", "", "json", contentTypeForm, function (data) {
         userInfo = data.data
     })
 }
