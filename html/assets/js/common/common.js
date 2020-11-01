@@ -14,5 +14,9 @@ document.write('<script src="/assets/js/jquery-ui.min.js"></script>')
 document.write('<script src="/assets/js/jquery.cookie.js"></script>')
 document.write('<script src="/assets/js/app.js"></script>')
 
+// 动态表格
+document.write('<script src="/plugins/bootstrap-table/bootstrap-table.js"></script>')
+document.write('<script src="/plugins/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>')
+
 // 引入自定义基础js
 document.write('<script src="/assets/js/common/base.js"></script>')
