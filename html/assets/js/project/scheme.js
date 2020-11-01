@@ -1,5 +1,5 @@
 // 初始化列表
-function initSchemeList() {
+function initSchemeList(page, pageSize) {
     columns = [
         {
             "field": "id",      // 对应数据结果中的字段名
@@ -94,8 +94,17 @@ function initSchemeList() {
             }
         }
     ];
-    tableConfig = getTableConfig(columns, "/admin/project/scheme/all", 1, true, [1, 2, 3, 4, 5], "server", "data", undefined)
+
+    tableConfig = getTableConfig(columns, "/admin/project/scheme/all", page, pageSize, true, [10, 20, 25, 50, 100], "server", "data", undefined)
     $("#scheme_list").bootstrapTable(tableConfig);
 }
 
-initSchemeList()
+initSchemeList(1, 10)
+// alert($("#scheme_list").bootstrapTable("getOptions").pageNumber);
+// alert($("#scheme_list").bootstrapTable("getOptions").pageSize);
+$('#scheme_list').on('page-change.bs.table', function (e, number, size) {
+    page = $("#scheme_list").bootstrapTable("getOptions").pageNumber;
+    pageSize = $("#scheme_list").bootstrapTable("getOptions").pageSize;
+    initSchemeList(page, pageSize);
+    // alert('切换页事件 --- 当前页数：第' + number + "页，每页显示数量" + size + "条");
+});

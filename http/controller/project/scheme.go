@@ -60,6 +60,7 @@ func (s *scheme) GetAll(ctx *gin.Context) {
 	} else {
 		ctx.JSON(http.StatusOK, gin.H{
 			"code":    0,
+			"total":   len(list),
 			"message": "请求成功",
 			"data":    list,
 		})

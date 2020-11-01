@@ -11,7 +11,7 @@
  * @param {*} queryParams 获取请求参数的过滤函数
  * @param {*} onLoadSuccess 数据加载成功之后的回调函数
  */
-function getTableConfig(columns, url, defaultPageSize, pagination, pageList, sidePagination, dataField, queryParams, onLoadSuccess) {
+function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, pageList, sidePagination, dataField, queryParams, onLoadSuccess) {
     if (pagination === undefined) {
         // 默认需要分页
         pagination = true
@@ -48,7 +48,7 @@ function getTableConfig(columns, url, defaultPageSize, pagination, pageList, sid
         method: "get",              // 请求方法
         contentType: "application/x-www-form-urlencoded",
         sortOrder: "asc",           // 排序方式
-        pageNumber: 1,              // 初始化加载第一页,默认第一页
+        pageNumber: defaultPage,              // 初始化加载第一页,默认第一页
         pagination: pagination,          // 是否分页
         pageSize: defaultPageSize,               // 每页记录数量
         pageList: [defaultPageSize, 10, 25, 50, 100],//可供选择的每页的行数（*）
