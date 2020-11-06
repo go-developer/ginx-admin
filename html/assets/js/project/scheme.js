@@ -83,13 +83,17 @@ function initSchemeList(page, pageSize) {
                 //console.log(row)
                 var value = value;
                 var index = index;
-                var rowStr = row.id;
+                var rowID = row.id;
+                var rowStatus = row.status
+                var rowName = row.scheme
                 var html =
-                    '<button type="button"  class="btn btn-primary btn-xs btndo" onclick="Edit(\'' +
-                    rowStr + '\')">修改</button>'
+                    '<button type="button"  class="btn btn-primary btn-xs btndo" onclick="editScheme(\'' +
+                    rowID + '\', \'' +
+                    rowName + '\', \'' +
+                    rowStatus + '\')">修改</button>'
                 html +=
                     '<button type="button"  class="btn btn-primary btn-xs btndo" onclick="Delete(\'' +
-                    rowStr + '\')" >删除</button>'
+                    rowID + '\')" >删除</button>'
                 return html;
             }
         }
@@ -108,3 +112,20 @@ $('#scheme_list').on('page-change.bs.table', function (e, number, size) {
     initSchemeList(page, pageSize);
     // alert('切换页事件 --- 当前页数：第' + number + "页，每页显示数量" + size + "条");
 });
+
+/**
+ * 编辑scheme
+ * @param {integer} schemeID
+ * @param {string} currentSchemeName
+ * @param {integer} currentSchemeStatus
+ */
+function editScheme(schemeID, currentSchemeName, currentSchemeStatus) {
+    $("#edit_scheme_id").val(schemeID)
+    $("#edit_scheme_status").val(currentSchemeStatus)
+    $("#edit_scheme_name").val(currentSchemeName)
+    // 展示模态框
+    $('#editSchemeModal').modal({
+        show: true,
+        backdrop: 'static'
+    })
+}

@@ -56,6 +56,43 @@
     <script src="/assets/js/common/common.js"></script>
     <script src="/assets/js/project/scheme.js"></script>
 
+
+    <!-- 编辑模态框（Modal） -->
+    <div class="modal fade" id="editSchemeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">修改SCHEME</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" id="edit_scheme_id">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">SCHEME:</label>
+                            <input type="text" class="form-control" id="edit_scheme_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">状态:</label>
+                            <!-- 样式1 -->
+                            <select id="edit_scheme_status" class="form-control">
+                                <option value="0">待激活</option>
+                                <option value="1">使用中</option>
+                                <option value="2">已删除</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
