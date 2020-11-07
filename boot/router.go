@@ -44,6 +44,7 @@ func (rb *routerBootstrap) loadRoute() {
 	rb.router.GET("/admin/user/info", auth.Verify)
 	rb.router.POST("/admin/project/scheme/create", project.Scheme.Create)
 	rb.router.GET("/admin/project/scheme/all", project.Scheme.GetAll)
+	rb.router.GET("/admin/project/scheme/list", project.Scheme.GetSchemeList)
 	rb.router.POST("/admin/project/scheme/delete", project.Scheme.SoftDelete)
 	rb.router.POST("/admin/project/scheme/update", project.Scheme.Update)
 }

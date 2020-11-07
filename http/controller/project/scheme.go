@@ -11,6 +11,7 @@ import (
 	"net/http"
 
 	"github.com/go-developer/ginx-manager/core"
+	"github.com/go-developer/go-util/util"
 
 	"github.com/gin-gonic/gin"
 )
@@ -61,6 +62,33 @@ func (s *scheme) GetAll(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
 			"code":    0,
 			"total":   len(list),
+			"message": "请求成功",
+			"data":    list,
+		})
+		return
+	}
+}
+
+func (s *scheme) GetSchemeList(ctx *gin.Context) {
+	var (
+		pageStr string
+		sizeStr string
+		page    int
+		size    int64
+	)
+
+	pageStr = ctx.DefaultQuery("page", "1")
+	sizeStr = ctx.DefaultQuery("size", "10")
+	util.ConvertAssign(&page, pageStr)
+	util.ConvertAssign(&size, sizeStr)
+	if list, err := core.Scheme.GetSchemeByPage(ctx, page, size); nil != err {
+		ctx.JSON(http.StatusOK, gin.H{
+			"code": -1,
+		})
+		return
+	} else {
+		ctx.JSON(http.StatusOK, gin.H{
+			"code":    0,
 			"message": "请求成功",
 			"data":    list,
 		})
