@@ -103,13 +103,15 @@ function initSchemeList(page, pageSize) {
     $("#scheme_list").bootstrapTable(tableConfig);
 }
 
-initSchemeList(1, 10)
+var currentPage = 1
+var currentPageSize = 10
+initSchemeList(currentPage, currentPageSize)
 // alert($("#scheme_list").bootstrapTable("getOptions").pageNumber);
 // alert($("#scheme_list").bootstrapTable("getOptions").pageSize);
 $('#scheme_list').on('page-change.bs.table', function (e, number, size) {
-    page = $("#scheme_list").bootstrapTable("getOptions").pageNumber;
-    pageSize = $("#scheme_list").bootstrapTable("getOptions").pageSize;
-    initSchemeList(page, pageSize);
+    currentPage = $("#scheme_list").bootstrapTable("getOptions").pageNumber;
+    currentPageSize = $("#scheme_list").bootstrapTable("getOptions").pageSize;
+    initSchemeList(currentPage, currentPageSize);
     // alert('切换页事件 --- 当前页数：第' + number + "页，每页显示数量" + size + "条");
 });
 
@@ -137,5 +139,17 @@ $("#edit_scheme_button").click(function () {
     var schemeID = Number($("#edit_scheme_id").val())
     var schemeName = $("#edit_scheme_name").val()
     var schemeStatus = $("#edit_scheme_status").val()
-    request(methodPost, "/admin/project/scheme/update", { "scheme_id": schemeID, "scheme": schemeName, "status": schemeStatus }, "json", contentTypeJson)
+    request(
+        methodPost,
+        "/admin/project/scheme/update",
+        { "scheme_id": schemeID, "scheme": schemeName, "status": schemeStatus },
+        "json",
+        contentTypeJson,
+        function (data) {
+            // 关闭模态框
+            $('#editSchemeModal').modal("hide")
+            // 重新加载当前页码
+            initSchemeList(currentPage, currentPageSize)
+        }
+    )
 });
