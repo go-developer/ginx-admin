@@ -7,7 +7,6 @@ $("#login_button").click(function () {
         "password": $("#password").val(),
     }
     request(methodPost, "/admin/user/login", data, "json", contentTypeJson, loginSuccess)
-    logger("账号 :", data.account, "密码 :", data.password)
 })
 
 /**

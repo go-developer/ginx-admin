@@ -94,8 +94,6 @@ let userInfo = {}
 
 let loginToken = $.cookie(tokenKey)
 
-logger("token信息", loginToken)
-
 if (undefined === loginToken || (currentPageURI !== loginPageURI && loginToken.length === 0)) {
     // 非登录页面，并且没有token, 重定向到 登录页面
     redirect(loginPageURI + "#" + currentPageURI)

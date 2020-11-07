@@ -129,3 +129,13 @@ function editScheme(schemeID, currentSchemeName, currentSchemeStatus) {
         backdrop: 'static'
     })
 }
+
+/**
+ * 编辑按钮点击事件
+ */
+$("#edit_scheme_button").click(function () {
+    var schemeID = Number($("#edit_scheme_id").val())
+    var schemeName = $("#edit_scheme_name").val()
+    var schemeStatus = $("#edit_scheme_status").val()
+    request(methodPost, "/admin/project/scheme/update", { "scheme_id": schemeID, "scheme": schemeName, "status": schemeStatus }, "json", contentTypeJson)
+});
