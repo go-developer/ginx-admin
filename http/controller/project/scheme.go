@@ -90,7 +90,8 @@ func (s *scheme) GetSchemeList(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, gin.H{
 			"code":    0,
 			"message": "请求成功",
-			"data":    list,
+			"data":    list.List,
+			"total":   list.Total,
 		})
 		return
 	}

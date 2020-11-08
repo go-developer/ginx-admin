@@ -67,8 +67,7 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
         queryParams: queryParams,   // 处理请求参数(匿名函数)
 
         onLoadSuccess: function (data) { // 加载成功时执行, 可进行数据格式化
-            result = JSON.stringify(data.data)
-            logger("scheme列表数据", result)
+
             //$("#scheme_list").bootstrapTable('load', data.code);
             //return result;
         },

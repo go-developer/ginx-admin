@@ -99,7 +99,8 @@ function initSchemeList(page, pageSize) {
         }
     ];
 
-    tableConfig = getTableConfig(columns, "/admin/project/scheme/all", page, pageSize, true, [10, 20, 25, 50, 100], "server", "data", undefined)
+    var queryParams = { "page": page, "size": pageSize }
+    tableConfig = getTableConfig(columns, "/admin/project/scheme/list", page, pageSize, true, [10, 20, 25, 50, 100], "server", "data", queryParams)
     $("#scheme_list").bootstrapTable(tableConfig);
 }
 
