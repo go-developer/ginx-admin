@@ -43,6 +43,8 @@ github.com/go-developer/ginx-dao v0.0.0-20201107185343-25f80b873eda h1:+6dzd/mDl
 github.com/go-developer/ginx-dao v0.0.0-20201107185343-25f80b873eda/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
 github.com/go-developer/ginx-dao v0.0.0-20201107190204-d564dba420a5 h1:6/QX/eBcMamQYVSaSe+dwsGWbT+WErfOcjxGOV0uAJ8=
 github.com/go-developer/ginx-dao v0.0.0-20201107190204-d564dba420a5/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
+github.com/go-developer/ginx-dao v0.0.0-20201108131030-44b7b7a1f9f9 h1:4Q8GSZUm3mjtIdbakJjwNx+eNxbj3ga3twfntkssSCA=
+github.com/go-developer/ginx-dao v0.0.0-20201108131030-44b7b7a1f9f9/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
 github.com/go-developer/ginx-manager v0.0.0-20201107183139-1fe4097afa80 h1:KBcc8StfjIVoA2+ccvcEy9BV+YpnJ6XwEiR/lUTKDV0=
 github.com/go-developer/ginx-manager v0.0.0-20201107183139-1fe4097afa80/go.mod h1:u11/qPXtJnkfpL9OmRvsYPQXYWAiVHjJXO/AYd+NiZA=
 github.com/go-developer/ginx-manager v0.0.0-20201107185523-16cd1a27de0c h1:5/WQoDPiWkrFAspm4iN/6OjcPG04STfqwrPJlqBwcjk=
@@ -51,6 +53,8 @@ github.com/go-developer/ginx-manager v0.0.0-20201107185943-1a1824f8bb95 h1:5O4Be
 github.com/go-developer/ginx-manager v0.0.0-20201107185943-1a1824f8bb95/go.mod h1:MqBHE6GzHECvkg2pJ18TdPqx1N+HhsYmwaPC0bq4TJ4=
 github.com/go-developer/ginx-manager v0.0.0-20201107190308-bfcbaf574ecd h1:pKfMbnmbCfwLdlwUWkzlThmYfZsR96EDXU0E4yM3cNc=
 github.com/go-developer/ginx-manager v0.0.0-20201107190308-bfcbaf574ecd/go.mod h1:Y31Dku4i9+YYwemg6Bc2TxlX36f439x+RRWXMXLBWm8=
+github.com/go-developer/ginx-manager v0.0.0-20201108131216-ebebdca7cd04 h1:U9tCxW6dLh80PFMVLvokNKBdBk2HszAERrPoieGDoek=
+github.com/go-developer/ginx-manager v0.0.0-20201108131216-ebebdca7cd04/go.mod h1:feCNPgtN+3l/q7MQlYeX5BYJ8F+xx7L2isPwo1AfZlo=
 github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04 h1:/ez/fKF85Iu55wv56l840eyO26l6xyHKRA1ZOytyRsQ=
 github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04/go.mod h1:Y+1KtY7t3QHntRoTTuJjFCe7Qj5m6rpRyRQcqIbhRn8=
 github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c h1:t+4uspfEu4WLG5Cih29RBCNDy5/2jVPXz0xwlshWjXE=

@@ -16,14 +16,18 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
         // 默认需要分页
         pagination = true
     }
+    if (defaultPage === undefined || defaultPage <= 0) {
+        logger("未定义页码,使用默认值 0")
+        defaultPage = 1
+    }
     if (undefined === defaultPageSize || 0 >= defaultPageSize) {
+        logger("未定义每页数量,使用默认值 10")
         defaultPageSize = 10
     }
     if (undefined === pageList) {
         // 默认的页码列表
         pageList = [10, 20, 25, 50, 100]
     }
-    pageList.push(defaultPageSize)
     if (undefined === sidePagination || ("client" !== sidePagination && "server" !== sidePagination)) {
         sidePagination = "server"
     }
@@ -31,9 +35,7 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
         dataField = "data"
     }
     if (undefined === queryParams) {
-        queryParams = function () {
-            logger(url + "接口未设置请求参数处理规则，当前默认空函数")
-        }
+        queryParams = { "page": defaultPage, "size": defaultPageSize }
     }
 
     if (undefined === onLoadSuccess) {
@@ -42,6 +44,7 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
         }
     }
 
+    logger("表格分页,页码与大小 : ", queryParams, defaultPageSize, defaultPage)
     return {
         // height: 100,   // 不配置，动态设置表格高度
         url: url,                    // 服务端数据接口
@@ -51,7 +54,7 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
         pageNumber: defaultPage,              // 初始化加载第一页,默认第一页
         pagination: pagination,          // 是否分页
         pageSize: defaultPageSize,               // 每页记录数量
-        pageList: [defaultPageSize, 10, 25, 50, 100],//可供选择的每页的行数（*）
+        pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
         sidePagination: "server",   //分页方式：client客户端分页，server服务端分页（*）
         toolbar: '#toolbar',        //Bstable工具导航条
         dataField: "data",          //数据节点   默认为rows 改成data后需要后台返回的数组为data
@@ -79,4 +82,23 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
             return "暂无数据";
         },
     }
+}
+
+/**
+ * 公共的刷新表格方法
+ *
+ * @param {string} tableID
+ * @param {int} page
+ * @param {int} size
+ * @param {Map} params
+ */
+function refreshTableEvent(tableID, page, size, params) {
+    if (undefined == params) {
+        params = {}
+    }
+    params["page"] = page
+    params["size"] = size
+    $(tableID).bootstrapTable("refreshOptions", {
+        "queryParams": params
+    })
 }
