@@ -13,6 +13,7 @@ require (
 	github.com/facebookgo/stats v0.0.0-20151006221625-1b76add642e4 // indirect
 	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/gin-gonic/gin v1.6.3
+	github.com/go-developer/exception v0.0.0-20201115104434-40fc7f4a5fc2
 	github.com/go-developer/ginx-manager v0.0.0-20201108131216-ebebdca7cd04
 	github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04
 	github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c
@@ -27,6 +28,7 @@ require (
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/stretchr/testify v1.6.1 // indirect
+	github.com/ugorji/go/codec v1.1.7
 	go.uber.org/zap v1.15.0
 	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae // indirect
 	golang.org/x/tools v0.0.0-20200724022722-7017fd6b1305 // indirect

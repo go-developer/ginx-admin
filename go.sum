@@ -37,6 +37,10 @@ github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE
 github.com/gin-contrib/sse v0.1.0/go.mod h1:RHrZQHXnP2xjPF+u1gW/2HnVO7nvIa9PG3Gm+fLHvGI=
 github.com/gin-gonic/gin v1.6.3 h1:ahKqKTFpO5KTPHxWZjEdPScmYaGtLo8Y4DMHoEsnp14=
 github.com/gin-gonic/gin v1.6.3/go.mod h1:75u5sXoLsGZoRN5Sgbi1eraJ4GU3++wFwWzhwvtwp4M=
+github.com/go-developer/exception v0.0.0-20201115103226-d10b28ed0b6e h1:tHVb4blHAoqT1WqaRWcq5NWgFjH17a+kzF8b2gcnUOo=
+github.com/go-developer/exception v0.0.0-20201115103226-d10b28ed0b6e/go.mod h1:zjpjwQ2bVuk41tS00tKdS5sgH7/Iop6AUxApuuaxgPM=
+github.com/go-developer/exception v0.0.0-20201115104434-40fc7f4a5fc2 h1:1DDp/h5Bat1qa6CT0vIsgjSV2+iqjv+HmyWzN72N3JM=
+github.com/go-developer/exception v0.0.0-20201115104434-40fc7f4a5fc2/go.mod h1:zjpjwQ2bVuk41tS00tKdS5sgH7/Iop6AUxApuuaxgPM=
 github.com/go-developer/ginx-dao v0.0.0-20201107182747-a8418ab13e78 h1:rr3KAxCOYPFCtmmTCzzcPtA4mYTukrmLxH2huoLVd4g=
 github.com/go-developer/ginx-dao v0.0.0-20201107182747-a8418ab13e78/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
 github.com/go-developer/ginx-dao v0.0.0-20201107185343-25f80b873eda h1:+6dzd/mDlGwErZ7de1u6f7+cTOT8wy2XXiRXqQymqj8=

@@ -10,7 +10,9 @@
 package boot
 
 import (
+	"github.com/go-developer/exception"
 	"github.com/go-developer/ginx-admin/config"
+	"github.com/go-developer/ginx-admin/define"
 	"github.com/go-developer/go-bootstrap"
 	godb "github.com/go-developer/gorm-mysql"
 )
@@ -58,6 +60,10 @@ func (cb *configBootstrap) Start() error {
 			OpenLog: false,
 		},
 	})
+
+	// 注册异常的相关信息
+	exception.SetDefaultSuccessCode(define.CodeSuccess)
+	exception.SetCodeTable(define.CodeTable)
 	return nil
 }
 

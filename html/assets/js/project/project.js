@@ -1,3 +1,5 @@
+// 项目管理相关js文件
+
 columns = [
     {
         "field": "id",      // 对应数据结果中的字段名
@@ -5,11 +7,7 @@ columns = [
         "vclass": "colStyle",
         "align": "center",
         "valign": "middle",
-        "title": "ID",       // 页面表格展示的title
-        //自定义方法
-        formatter: function (value) {
-            return "<a target='_blank' href='/page/project/scheme_detail.html#" + value + "'>" + value + "</a>";
-        }
+        "title": "ID"       // 页面表格展示的title
     },
     {
         "field": "scheme",
@@ -93,65 +91,10 @@ columns = [
                 rowID + '\', \'' +
                 rowName + '\', \'' +
                 rowStatus + '\')">修改</button>'
-            //html +=
-            //    '<button type="button"  class="btn btn-primary btn-xs btndo" onclick="Delete(\'' +
-            //    rowID + '\')" >删除</button>'
+            html +=
+                '<button type="button"  class="btn btn-primary btn-xs btndo" onclick="Delete(\'' +
+                rowID + '\')" >删除</button>'
             return html;
         }
     }
 ];
-var tableID = "#scheme_list"
-var defaultPage = 1
-var defaultSize = 10
-var tableConfig = getTableConfig(columns, "/admin/project/scheme/list", defaultPage, defaultSize, true, [10, 20, 25, 50, 100], "server", "data", undefined)
-$("#scheme_list").bootstrapTable(tableConfig);
-
-
-// initSchemeList(defaultSize, defaultSize, "init")
-// alert($("#scheme_list").bootstrapTable("getOptions").pageNumber);
-// alert($("#scheme_list").bootstrapTable("getOptions").pageSize);
-$('#scheme_list').on('page-change.bs.table', function (e, number, size) {
-    //page = $("#scheme_list").bootstrapTable("getOptions").pageNumber;
-    //size = $("#scheme_list").bootstrapTable("getOptions").pageSize;
-    refreshTableEvent(tableID, number, size, undefined);
-    // alert('切换页事件 --- 当前页数：第' + number + "页，每页显示数量" + size + "条");
-});
-
-/**
- * 编辑scheme
- * @param {integer} schemeID
- * @param {string} currentSchemeName
- * @param {integer} currentSchemeStatus
- */
-function editScheme(schemeID, currentSchemeName, currentSchemeStatus) {
-    $("#edit_scheme_id").val(schemeID)
-    $("#edit_scheme_status").val(currentSchemeStatus)
-    $("#edit_scheme_name").val(currentSchemeName)
-    // 展示模态框
-    $('#editSchemeModal').modal({
-        show: true,
-        backdrop: 'static'
-    })
-}
-
-/**
- * 编辑按钮点击事件
- */
-$("#edit_scheme_button").click(function () {
-    var schemeID = Number($("#edit_scheme_id").val())
-    var schemeName = $("#edit_scheme_name").val()
-    var schemeStatus = $("#edit_scheme_status").val()
-    request(
-        methodPost,
-        "/admin/project/scheme/update",
-        { "scheme_id": schemeID, "scheme": schemeName, "status": schemeStatus },
-        "json",
-        contentTypeJson,
-        function (data) {
-            // 关闭模态框
-            $('#editSchemeModal').modal("hide")
-            // 前台更新数据
-            refreshTableEvent(currentPage, currentPageSize, undefined)
-        }
-    )
-});
