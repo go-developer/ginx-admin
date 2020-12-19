@@ -47,6 +47,7 @@ func (rb *routerBootstrap) loadRoute() {
 	rb.router.GET("/admin/project/scheme/list", project.Scheme.GetSchemeList)
 	rb.router.POST("/admin/project/scheme/delete", project.Scheme.SoftDelete)
 	rb.router.POST("/admin/project/scheme/update", project.Scheme.Update)
+	rb.router.GET("/admin/project/method/list", project.Method.GetMethodList)
 }
 
 func (rb *routerBootstrap) Start() error {

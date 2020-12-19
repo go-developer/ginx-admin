@@ -10,6 +10,12 @@ const (
 	CodeSuccess = 0
 	// CodeParamParseError 参数解析失败
 	CodeParamParseError = 4000
+	// CodeSoftDeleteSchemeError 软删除scheme失败
+	CodeSoftDeleteSchemeError = 5000
+	// CodeGetSchemeListError 获取scheme列表失败
+	CodeGetSchemeListError = 5001
+	// CodeGetSchemeDetailError 获取scheme详情失败
+	CodeGetSchemeDetailError = 5002
 )
 
 // CodeTable 错误码表
@@ -18,6 +24,9 @@ const (
 //
 // Date : 2020/11/15 18:07:11
 var CodeTable = map[int]string{
-	CodeSuccess:         "请求成功",
-	CodeParamParseError: "参数解析失败",
+	CodeSuccess:               "请求成功",
+	CodeParamParseError:       "参数解析失败",
+	CodeSoftDeleteSchemeError: "软删除scheme失败",
+	CodeGetSchemeListError:    "获取scheme列表失败",
+	CodeGetSchemeDetailError:  "获取scheme详情失败",
 }

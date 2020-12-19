@@ -93,7 +93,7 @@ function getTableConfig(columns, url, defaultPage, defaultPageSize, pagination, 
  * @param {Map} params
  */
 function refreshTableEvent(tableID, page, size, params) {
-    if (undefined == params) {
+    if (undefined === params) {
         params = {}
     }
     params["page"] = page

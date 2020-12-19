@@ -14,7 +14,7 @@ require (
 	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-developer/exception v0.0.0-20201115104434-40fc7f4a5fc2
-	github.com/go-developer/ginx-manager v0.0.0-20201108131216-ebebdca7cd04
+	github.com/go-developer/ginx-manager v0.0.0-20201219145804-e16bce1447a5
 	github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04
 	github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c
 	github.com/go-developer/go-util v0.0.0-20200725141621-e10d38524a2e

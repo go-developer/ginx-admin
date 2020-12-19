@@ -87,7 +87,7 @@ func (s *scheme) GetSchemeList(ctx *gin.Context) {
 	commonUtil.ConvertAssign(&page, pageStr)
 	commonUtil.ConvertAssign(&size, sizeStr)
 	if list, err := core.Scheme.GetSchemeByPage(ctx, page, size); nil != err {
-		util.Response(ctx, exception.New(define.CodeParamParseError, err.Error(), nil), nil, nil)
+		util.Response(ctx, exception.New(define.CodeGetSchemeListError, err.Error(), nil), nil, nil)
 		return
 	} else {
 		util.Response(ctx, exception.NewSuccess(list.List), nil, map[string]interface{}{"total": list.Total})
@@ -95,25 +95,22 @@ func (s *scheme) GetSchemeList(ctx *gin.Context) {
 	}
 }
 
+// SoftDelete 软删除scheme
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/11/15 19:10:11
 func (s *scheme) SoftDelete(ctx *gin.Context) {
 	var param struct {
 		SchemeID      uint64 `json:"scheme_id"`
 		CurrentStatus uint   `json:"current_status"`
 	}
 	if err := ctx.BindJSON(&param); nil != err {
-		ctx.JSON(http.StatusOK, gin.H{
-			"code":    -1,
-			"message": err.Error(),
-			"data":    nil,
-		})
+		util.Response(ctx, exception.New(define.CodeParamParseError, err.Error(), nil), nil, nil)
 		return
 	}
 	if err := core.Scheme.SoftDelete(ctx, param.SchemeID, param.CurrentStatus); nil != err {
-		ctx.JSON(http.StatusOK, gin.H{
-			"code":    -1,
-			"message": err.Error(),
-			"data":    nil,
-		})
+		util.Response(ctx, exception.New(define.CodeSoftDeleteSchemeError, err.Error(), nil), nil, nil)
 		return
 	}
 	ctx.JSON(http.StatusOK, gin.H{
@@ -152,3 +149,10 @@ func (s *scheme) Update(ctx *gin.Context) {
 		"code": 0,
 	})
 }
+
+// GetDetail 获取scheme详情
+//
+// Author : go_developer@163.com<张德满>
+//
+// Date : 2020/11/15 19:25:20
+func (s *scheme) GetDetail(ctx *gin.Context) {}

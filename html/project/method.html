@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<include src="../common/html_header.html"></include>
+
+<body>
+    <include src="../common/header.html"></include>
+
+    <include src="../common/left.html"></include>
+
+    <div class="page-wrapper">
+
+        <!-- Page Content-->
+        <div class="page-content">
+            <div class="container-fluid">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="float-right">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">GO网关管理后台</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">请求方法管理</a></li>
+                                    <li class="breadcrumb-item active">请求方法列表</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">method管理</h4>
+                        </div>
+                        <!--end page-title-box-->
+                    </div>
+                    <!--end col-->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title mt-0 mb-3">method列表</h4>
+                                <h4 class="header-title mt-0 mb-3">新建method</h4>
+                                <div class="table-responsive">
+                                    <table id="method_list">
+
+                                    </table>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                </div>
+                <!--end row-->
+
+            </div>
+            <include src="../common/footer.html"></include>
+
+        </div>
+    </div>
+
+
+    <!-- 编辑模态框（Modal） -->
+    <div class="modal fade" id="editMethodModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">修改method</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="hidden" id="edit_method_id">
+                        <input type="hidden" id="edit_method_index">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">method:</label>
+                            <input type="text" class="form-control" id="edit_method_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">状态:</label>
+                            <!-- 样式1 -->
+                            <select id="edit_method_status" class="form-control">
+                                <option value="0">待激活</option>
+                                <option value="1">使用中</option>
+                                <option value="2">已删除</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="edit_method_button">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/assets/js/common/common.js"></script>
+    <script src="/assets/js/project/method.js"></script>
+
+
+</body>
+
+</html>

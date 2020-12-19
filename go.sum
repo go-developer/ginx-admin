@@ -49,6 +49,8 @@ github.com/go-developer/ginx-dao v0.0.0-20201107190204-d564dba420a5 h1:6/QX/eBcM
 github.com/go-developer/ginx-dao v0.0.0-20201107190204-d564dba420a5/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
 github.com/go-developer/ginx-dao v0.0.0-20201108131030-44b7b7a1f9f9 h1:4Q8GSZUm3mjtIdbakJjwNx+eNxbj3ga3twfntkssSCA=
 github.com/go-developer/ginx-dao v0.0.0-20201108131030-44b7b7a1f9f9/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
+github.com/go-developer/ginx-dao v0.0.0-20201219132257-a28d532822c5 h1:dHJUqaKU2NHYwXGHvMDsJhf1DBcZMptuNXbo1N4QL+8=
+github.com/go-developer/ginx-dao v0.0.0-20201219132257-a28d532822c5/go.mod h1:1fj0/QHvTU2/BNUZLAb1yxFIShPvfiBLs3NIvH52fLk=
 github.com/go-developer/ginx-manager v0.0.0-20201107183139-1fe4097afa80 h1:KBcc8StfjIVoA2+ccvcEy9BV+YpnJ6XwEiR/lUTKDV0=
 github.com/go-developer/ginx-manager v0.0.0-20201107183139-1fe4097afa80/go.mod h1:u11/qPXtJnkfpL9OmRvsYPQXYWAiVHjJXO/AYd+NiZA=
 github.com/go-developer/ginx-manager v0.0.0-20201107185523-16cd1a27de0c h1:5/WQoDPiWkrFAspm4iN/6OjcPG04STfqwrPJlqBwcjk=
@@ -59,6 +61,10 @@ github.com/go-developer/ginx-manager v0.0.0-20201107190308-bfcbaf574ecd h1:pKfMb
 github.com/go-developer/ginx-manager v0.0.0-20201107190308-bfcbaf574ecd/go.mod h1:Y31Dku4i9+YYwemg6Bc2TxlX36f439x+RRWXMXLBWm8=
 github.com/go-developer/ginx-manager v0.0.0-20201108131216-ebebdca7cd04 h1:U9tCxW6dLh80PFMVLvokNKBdBk2HszAERrPoieGDoek=
 github.com/go-developer/ginx-manager v0.0.0-20201108131216-ebebdca7cd04/go.mod h1:feCNPgtN+3l/q7MQlYeX5BYJ8F+xx7L2isPwo1AfZlo=
+github.com/go-developer/ginx-manager v0.0.0-20201219133835-74674dd813c2 h1:9cjkrKrqgeQ/1a4kGVQcNO/CrLZnsOsr89gfc3fM28Y=
+github.com/go-developer/ginx-manager v0.0.0-20201219133835-74674dd813c2/go.mod h1:74JyBRaaDzR9p/GcYPqcBJV38eDw2IJTli/Lqovzeq8=
+github.com/go-developer/ginx-manager v0.0.0-20201219145804-e16bce1447a5 h1:IBH5ZCZlINcf6vuvrdgeiSWAvR1IGiBMOgVl7LF+BoU=
+github.com/go-developer/ginx-manager v0.0.0-20201219145804-e16bce1447a5/go.mod h1:74JyBRaaDzR9p/GcYPqcBJV38eDw2IJTli/Lqovzeq8=
 github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04 h1:/ez/fKF85Iu55wv56l840eyO26l6xyHKRA1ZOytyRsQ=
 github.com/go-developer/go-bootstrap v0.0.0-20200629140729-edf6dc1aee04/go.mod h1:Y+1KtY7t3QHntRoTTuJjFCe7Qj5m6rpRyRQcqIbhRn8=
 github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c h1:t+4uspfEu4WLG5Cih29RBCNDy5/2jVPXz0xwlshWjXE=
