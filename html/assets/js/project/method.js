@@ -106,10 +106,7 @@ let defaultSize = 10
 let methodTableConfig = getTableConfig(methodColumns, "/admin/project/method/list", defaultPage, defaultSize, true, [10, 20, 25, 50, 100], "server", "data", undefined)
 $("#method_list").bootstrapTable(methodTableConfig);
 
-
-// initmethodList(defaultSize, defaultSize, "init")
-// alert($("#method_list").bootstrapTable("getOptions").pageNumber);
-// alert($("#method_list").bootstrapTable("getOptions").pageSize);
+// 分页页码点击事件
 $('#method_list').on('page-change.bs.table', function (e, number, size) {
     // alert(123)
     //page = $("#method_list").bootstrapTable("getOptions").pageNumber;
