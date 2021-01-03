@@ -35,8 +35,8 @@ func (lb *loggerBootstrap) Start() error {
 
 func (lb *loggerBootstrap) Stop() error {
 	//将缓存的日志刷入文件
-	logger.Business.Sync()
-	logger.Access.Sync()
+	logger.Business.GetZapLoggerInstance().Sync()
+	logger.Access.GetZapLoggerInstance().Sync()
 	time.Sleep(time.Second)
 	return nil
 }

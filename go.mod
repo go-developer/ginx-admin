@@ -19,6 +19,7 @@ require (
 	github.com/go-developer/go-logger v0.0.0-20200718184112-ff6ce1821d7c
 	github.com/go-developer/go-util v0.0.0-20200725141621-e10d38524a2e
 	github.com/go-developer/gorm-mysql v0.0.0-20200802124919-46a1644004d2
+	github.com/go-developer/logger v0.0.0-20210103145737-fc399f724efb
 	github.com/go-playground/validator/v10 v10.3.0 // indirect
 	github.com/golang/protobuf v1.4.2 // indirect
 	github.com/json-iterator/go v1.1.10 // indirect
@@ -29,7 +30,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/stretchr/testify v1.6.1 // indirect
 	github.com/ugorji/go/codec v1.1.7
-	go.uber.org/zap v1.15.0
+	go.uber.org/zap v1.16.0
 	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae // indirect
 	golang.org/x/tools v0.0.0-20200724022722-7017fd6b1305 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
